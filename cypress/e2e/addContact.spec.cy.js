@@ -1,4 +1,8 @@
 describe('Add Contact Tests', () => {
+
+    before(() => {
+        cy.log('This is running in my before hook')
+})
     it('Can add a new contact', () => {
 
         let random = Math.floor(Math.random() * 1000)
@@ -31,4 +35,7 @@ describe('Add Contact Tests', () => {
         cy.get('#error').should('contain', 'Contact validation failed: lastName')
     })
 
+    after(() => {
+        cy.log('This is running in my after hook')
+    })
 })
